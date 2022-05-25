@@ -1,11 +1,13 @@
 import 'package:firebase_app/config/environment_config.dart';
 import 'package:firebase_app/config/firebase_options.dart';
+import 'package:firebase_app/services/auth_service.dart';
 import 'package:firebase_app/views/login.dart';
 import 'package:firebase_app/views/profile.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:provider/provider.dart';
 
 Future<void> main() async {
   await dotenv.load(fileName: EnvironmentConfig.firebasePath);
@@ -23,7 +25,10 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return StreamProvider<User?>.value(
+      initialData: FirebaseAuth.instance.currentUser,
+      value: AuthService().user,
+      child: MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(
           // This is the theme of your application.
@@ -37,12 +42,10 @@ class MyApp extends StatelessWidget {
           // is not restarted.
           primarySwatch: Colors.blue,
         ),
-        home: FirebaseAuth.instance.currentUser == null
-            ? LoginView()
-            : const ProfileView()
-        // FirebaseAuth.instance.currentUser != null
-        //     ? const ProfileView()
-        //     : LoginView(),
-        );
+        home: FirebaseAuth.instance.currentUser != null
+            ? const ProfileView()
+            : LoginView(),
+      ),
+    );
   }
 }
