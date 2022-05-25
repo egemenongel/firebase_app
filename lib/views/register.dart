@@ -1,4 +1,7 @@
-import 'package:firebase_auth/firebase_auth.dart';
+import 'dart:developer';
+
+import 'package:firebase_app/services/auth_service.dart';
+import 'package:firebase_app/views/profile.dart';
 import 'package:flutter/material.dart';
 
 class RegisterView extends StatelessWidget {
@@ -16,11 +19,17 @@ class RegisterView extends StatelessWidget {
           TextField(controller: password),
           const SizedBox(height: 50),
           ElevatedButton(
-            onPressed: () {
-              FirebaseAuth.instance.createUserWithEmailAndPassword(
-                email: email.text,
-                password: password.text,
-              );
+            onPressed: () async {
+              var response =
+                  await AuthService().register(email.text, password.text);
+              if (response != null) {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const ProfileView()));
+              } else {
+                log('$response');
+              }
             },
             child: const Text('Register'),
           ),

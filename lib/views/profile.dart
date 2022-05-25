@@ -1,5 +1,5 @@
+import 'package:firebase_app/services/auth_service.dart';
 import 'package:firebase_app/views/login.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class ProfileView extends StatefulWidget {
@@ -19,7 +19,7 @@ class _ProfileViewState extends State<ProfileView> {
           const Text('LOGGED IN'),
           ElevatedButton(
             onPressed: () {
-              FirebaseAuth.instance.signOut();
+              AuthService().logOut();
               Navigator.pushAndRemoveUntil(
                   context,
                   MaterialPageRoute(builder: (context) => LoginView()),
