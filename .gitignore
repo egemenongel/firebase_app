@@ -34,6 +34,8 @@ migrate_working_dir/
 .env
 .env.development
 .env.production
+.firebase.env
+
 # Web related
 lib/generated_plugin_registrant.dart
 
