@@ -1,15 +1,19 @@
+import 'package:firebase_app/environment_config.dart';
 import 'package:firebase_app/firebase_options.dart';
 import 'package:firebase_app/views/login.dart';
 import 'package:firebase_app/views/profile.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+  await dotenv.load(fileName: EnvironmentConfig.fileName);
+
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 

@@ -1,10 +1,9 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class EnvironmentConfig {
-  static String get fileName =>
-      kReleaseMode ? ".env.production" : ".env.development";
-  static String get apiUrl => dotenv.env['API_URL'] ?? 'MY_FALLBACK';
+  static String get fileName => ".env.production";
+  // kReleaseMode ? ".env.production" : ".env.development";
+  // static String get apiUrl => dotenv.env['API_URL'] ?? 'MY_FALLBACK';
 
   static String get firebaseWebApiKey =>
       dotenv.env['WEB_FIREBASE_API_KEY'] ?? 'MY_FALLBACK';
