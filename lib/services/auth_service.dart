@@ -9,6 +9,10 @@ class AuthService {
     return _instance.authStateChanges();
   }
 
+  User? get userInfo {
+    return _instance.currentUser as User;
+  }
+
   Future login(String email, String password) async {
     try {
       return _instance.signInWithEmailAndPassword(

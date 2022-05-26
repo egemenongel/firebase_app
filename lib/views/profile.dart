@@ -12,21 +12,32 @@ class ProfileView extends StatefulWidget {
 class _ProfileViewState extends State<ProfileView> {
   @override
   Widget build(BuildContext context) {
+    void _logOut() {
+      AuthService().logOut();
+      Navigator.pushAndRemoveUntil(
+          context,
+          MaterialPageRoute(builder: (context) => LoginView()),
+          (route) => false);
+    }
+
     return Scaffold(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+      body: Row(
         children: [
-          const Text('LOGGED IN'),
-          ElevatedButton(
-            onPressed: () {
-              AuthService().logOut();
-              Navigator.pushAndRemoveUntil(
-                  context,
-                  MaterialPageRoute(builder: (context) => LoginView()),
-                  (route) => false);
-            },
-            child: const Text('Log Out'),
-          )
+          Expanded(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text('email: ${AuthService().userInfo!.email!}'),
+                const SizedBox(height: 40),
+                Text('UID: ${AuthService().userInfo!.uid}'),
+                const SizedBox(height: 40),
+                ElevatedButton(
+                  onPressed: _logOut,
+                  child: const Text('Log Out'),
+                )
+              ],
+            ),
+          ),
         ],
       ),
     );
