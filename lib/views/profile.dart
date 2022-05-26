@@ -27,19 +27,27 @@ class _ProfileViewState extends State<ProfileView> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text('email: ${AuthService().userInfo!.email!}'),
+                _buildEmail(),
                 const SizedBox(height: 40),
-                Text('UID: ${AuthService().userInfo!.uid}'),
+                _buildUid(),
                 const SizedBox(height: 40),
-                ElevatedButton(
-                  onPressed: _logOut,
-                  child: const Text('Log Out'),
-                )
+                _buildLogOutButton(_logOut)
               ],
             ),
           ),
         ],
       ),
+    );
+  }
+
+  Text _buildEmail() => Text('email: ${AuthService().userInfo!.email!}');
+
+  Text _buildUid() => Text('UID: ${AuthService().userInfo!.uid}');
+
+  ElevatedButton _buildLogOutButton(void Function() logOut) {
+    return ElevatedButton(
+      onPressed: logOut,
+      child: const Text('Log Out'),
     );
   }
 }
