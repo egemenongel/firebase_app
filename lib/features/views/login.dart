@@ -1,8 +1,8 @@
 import 'dart:developer';
 
+import 'package:firebase_app/features/views/profile.dart';
+import 'package:firebase_app/features/views/register.dart';
 import 'package:firebase_app/services/auth_service.dart';
-import 'package:firebase_app/views/profile.dart';
-import 'package:firebase_app/views/register.dart';
 import 'package:flutter/material.dart';
 
 class LoginView extends StatelessWidget {

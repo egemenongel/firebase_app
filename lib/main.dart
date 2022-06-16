@@ -1,8 +1,9 @@
 import 'package:firebase_app/config/environment_config.dart';
 import 'package:firebase_app/config/firebase_options.dart';
+import 'package:firebase_app/features/views/login.dart';
+import 'package:firebase_app/features/views/profile.dart';
 import 'package:firebase_app/services/auth_service.dart';
-import 'package:firebase_app/views/login.dart';
-import 'package:firebase_app/views/profile.dart';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
