@@ -16,8 +16,8 @@ class AuthService {
   Future login(String email, String password) async {
     try {
       return _instance.signInWithEmailAndPassword(
-        email: email,
-        password: password,
+        email: email.trim(),
+        password: password.trim(),
       );
     } catch (e) {
       log('$e');
