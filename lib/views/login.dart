@@ -11,16 +11,6 @@ class LoginView extends StatelessWidget {
   final TextEditingController password = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    void _login() async {
-      var response = await AuthService().login(email.text, password.text);
-      if (response != null) {
-        Navigator.push(context,
-            MaterialPageRoute(builder: (context) => const ProfileView()));
-      } else {
-        log('$response');
-      }
-    }
-
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -29,7 +19,7 @@ class LoginView extends StatelessWidget {
           _buildEmailField(),
           _buildPasswordField(),
           const SizedBox(height: 50),
-          _buildLoginButton(_login),
+          _buildLoginButton(context),
           _buildRegisterButton(context)
         ]),
       ),
@@ -39,11 +29,22 @@ class LoginView extends StatelessWidget {
   Text _buildTitle() => const Text('LOGIN');
   TextField _buildEmailField() => TextField(controller: email);
   TextField _buildPasswordField() => TextField(controller: password);
-  ElevatedButton _buildLoginButton(void Function() login) {
+  ElevatedButton _buildLoginButton(BuildContext context) {
     return ElevatedButton(
-      onPressed: login,
+      onPressed: () => _login(context),
       child: const Text('Login'),
     );
+  }
+
+  void _login(BuildContext context) async {
+    var response = await AuthService().login(email.text, password.text);
+    final navigator = Navigator.of(context);
+    if (response != null) {
+      navigator
+          .push(MaterialPageRoute(builder: (navigator) => const ProfileView()));
+    } else {
+      log('$response');
+    }
   }
 
   TextButton _buildRegisterButton(BuildContext context) {
