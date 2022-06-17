@@ -1,7 +1,8 @@
 {
    "common":{
       "buttons":{
-         "login":"login"
+         "login":"login",
+         "register":"register"
       },
       "errors":{
          "user-not-found":"There is no user with these credentials.",

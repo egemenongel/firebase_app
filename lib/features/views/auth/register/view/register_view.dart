@@ -1,4 +1,5 @@
 import 'package:firebase_app/core/base/view/base_view.dart';
+import 'package:firebase_app/core/components/translated_text.dart';
 import 'package:firebase_app/features/views/auth/register/viewmodel/register_viewmodel.dart';
 import 'package:flutter/material.dart';
 
@@ -35,7 +36,7 @@ class RegisterView extends StatelessWidget {
     );
   }
 
-  Text _buildTitle() => const Text('REGISTER');
+  TranslatedText _buildTitle() => const TranslatedText('register.title');
   TextField _buildEmailField(RegisterViewmodel viewmodel) =>
       TextField(controller: viewmodel.emailController);
   TextField _buildPasswordField(RegisterViewmodel viewmodel) =>
@@ -43,14 +44,14 @@ class RegisterView extends StatelessWidget {
   ElevatedButton _buildRegisterButton(RegisterViewmodel viewmodel) {
     return ElevatedButton(
       onPressed: () => viewmodel.register(),
-      child: const Text('Register'),
+      child: const TranslatedText('common.buttons.register'),
     );
   }
 
   TextButton _buildLoginButton(BuildContext context) {
     return TextButton(
       onPressed: () => Navigator.pop(context),
-      child: const Text('OR LOGIN'),
+      child: const TranslatedText('register.login'),
     );
   }
 }

@@ -2,7 +2,7 @@ import 'package:firebase_app/core/base/view/base_view.dart';
 import 'package:firebase_app/core/components/translated_text.dart';
 import 'package:firebase_app/core/enums/string_case_enum.dart';
 import 'package:firebase_app/features/views/auth/login/viewmodel/login_viewmodel.dart';
-import 'package:firebase_app/features/views/register.dart';
+import 'package:firebase_app/features/views/auth/register/view/register_view.dart';
 import 'package:flutter/material.dart';
 
 class LoginView extends StatelessWidget {

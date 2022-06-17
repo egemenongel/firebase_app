@@ -1,7 +1,8 @@
 {
     "common":{
        "buttons":{
-          "login":"giriş yap"
+          "login":"giriş yap",
+          "register":"kayıt ol"
        },
        "errors":{
           "user-not-found":"Bu bilgilerle eşleşen bir kullanıcı bulunamadı.",
