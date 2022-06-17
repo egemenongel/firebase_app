@@ -5,9 +5,12 @@
        },
        "errors":{
           "user-not-found":"Bu bilgilerle eşleşen bir kullanıcı bulunamadı.",
-          "wrong-password":"Yanlış e-posta ya da şifre.",
+          "wrong-password":"Yanlış eposta ya da şifre.",
           "invalid-email":"Lütfen geçerlı bir e-posta girin.",
-          "unknown":"Bir hata oluştu. Lütfen daha sonra tekrar deneyin."
+          "unknown":"Bir hata oluştu. Lütfen daha sonra tekrar deneyin.",
+          "email-already-in-use":"Bu eposta adresi ile bir kullanıcı mevcut. Şifreni mi unuttun?",
+          "operation-not-allowed":"Bir hata oluştu. Lütfen daha sonra tekrar deneyin.",
+          "weak-password":"Lütfen en az 6 haneli bir şifre girin."
        }
     }
  }

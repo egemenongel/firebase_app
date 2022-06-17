@@ -1,4 +1,4 @@
-import 'package:firebase_app/features/views/login.dart';
+import 'package:firebase_app/features/views/auth/login/view/login_view.dart';
 import 'package:firebase_app/services/auth_service.dart';
 import 'package:flutter/material.dart';
 
@@ -16,7 +16,7 @@ class _ProfileViewState extends State<ProfileView> {
       AuthService().logOut();
       Navigator.pushAndRemoveUntil(
           context,
-          MaterialPageRoute(builder: (context) => LoginView()),
+          MaterialPageRoute(builder: (context) => const LoginView()),
           (route) => false);
     }
 

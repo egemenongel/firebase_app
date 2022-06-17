@@ -7,7 +7,10 @@
          "user-not-found":"There is no user with these credentials.",
          "wrong-password":"Incorrect email or password.",
          "invalid-email":"Please type an appropriate email address.",
-         "unknown":"An error occured. Please try again later."
+         "unknown":"An error occured. Please try again later.",
+         "email-already-in-use":"There is already a user with these email. Did you forget your password?",
+         "operation-not-allowed":"An error occured. Please try again later.",
+         "weak-password":"Please type a password longer than 6 characters."
       }
    }
 }
