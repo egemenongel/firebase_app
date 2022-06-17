@@ -1,13 +1,13 @@
+import 'package:firebase_app/services/auth_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-class LoginService {
-  final FirebaseAuth _instance = FirebaseAuth.instance;
+class LoginService extends AuthService {
   Future<dynamic> login(Map<String, dynamic> payload) async {
     try {
-      return await _instance.signInWithEmailAndPassword(
-        email: payload['email'],
-        password: payload['password'],
-      );
+      return await super.instance.signInWithEmailAndPassword(
+            email: payload['email'],
+            password: payload['password'],
+          );
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
       } else if (e.code == 'wrong-password') {
