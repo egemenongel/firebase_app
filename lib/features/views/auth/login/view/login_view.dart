@@ -1,4 +1,6 @@
 import 'package:firebase_app/core/base/view/base_view.dart';
+import 'package:firebase_app/core/components/translated_text.dart';
+import 'package:firebase_app/core/enums/string_case_enum.dart';
 import 'package:firebase_app/features/views/auth/login/viewmodel/login_viewmodel.dart';
 import 'package:firebase_app/features/views/register.dart';
 import 'package:flutter/material.dart';
@@ -37,7 +39,10 @@ class LoginView extends StatelessWidget {
     );
   }
 
-  Text _buildTitle() => const Text('LOGIN');
+  TranslatedText _buildTitle() => const TranslatedText(
+        'login.title',
+        textCase: StringCase.title,
+      );
   TextField _buildEmailField(LoginViewModel viewModel) =>
       TextField(controller: viewModel.emailController);
   TextField _buildPasswordField(LoginViewModel viewModel) =>
@@ -45,7 +50,10 @@ class LoginView extends StatelessWidget {
   ElevatedButton _buildLoginButton(LoginViewModel viewModel) {
     return ElevatedButton(
       onPressed: () => viewModel.login(),
-      child: const Text('Login'),
+      child: const TranslatedText(
+        'common.buttons.login',
+        textCase: StringCase.title,
+      ),
     );
   }
 
@@ -53,8 +61,10 @@ class LoginView extends StatelessWidget {
     return TextButton(
         onPressed: () {
           Navigator.push(
-              context, MaterialPageRoute(builder: (context) => RegisterView()));
+            context,
+            MaterialPageRoute(builder: (context) => RegisterView()),
+          );
         },
-        child: const Text('OR REGISTER'));
+        child: const TranslatedText('login.register'));
   }
 }
