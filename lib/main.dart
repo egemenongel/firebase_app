@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:firebase_app/config/environment_config.dart';
 import 'package:firebase_app/config/firebase_options.dart';
 import 'package:firebase_app/features/views/auth/login/view/login_view.dart';
@@ -27,9 +29,9 @@ Future<void> main() async {
         JsonDecodeStrategy(),
       ],
     ),
-    // missingTranslationHandler: (key, locale) {
-    //   log("--- Missing Key: $key, languageCode: ${locale!.languageCode}");
-    // },
+    missingTranslationHandler: (key, locale) {
+      log("--- Missing Key: $key, languageCode: ${locale!.languageCode}");
+    },
   );
 
   WidgetsFlutterBinding.ensureInitialized();

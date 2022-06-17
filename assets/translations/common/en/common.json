@@ -2,6 +2,12 @@
    "common":{
       "buttons":{
          "login":"login"
+      },
+      "errors":{
+         "user-not-found":"There is no user with these credentials.",
+         "wrong-password":"Incorrect email or password.",
+         "invalid-email":"Please type an appropriate email address.",
+         "unknown":"An error occured. Please try again later."
       }
    }
 }
