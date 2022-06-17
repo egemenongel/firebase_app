@@ -15,7 +15,7 @@ import 'package:flutter_i18n/loaders/decoders/json_decode_strategy.dart';
 import 'package:provider/provider.dart';
 
 Future<void> main() async {
-  await dotenv.load(fileName: EnvironmentConfig.firebasePath);
+  await dotenv.load(fileName: EnvironmentConfig.envPath);
 
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
