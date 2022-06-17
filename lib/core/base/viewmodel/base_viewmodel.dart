@@ -1,6 +1,5 @@
+import 'package:firebase_app/core/enums/viewstate_enum.dart';
 import 'package:flutter/material.dart';
-
-enum ViewState { busy, idle }
 
 abstract class BaseViewmodel extends ChangeNotifier {
   final BuildContext _context;
