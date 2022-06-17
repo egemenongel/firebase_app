@@ -13,18 +13,6 @@ class AuthService {
     return _instance.currentUser as User;
   }
 
-  Future login(String email, String password) async {
-    try {
-      return _instance.signInWithEmailAndPassword(
-        email: email.trim(),
-        password: password.trim(),
-      );
-    } catch (e) {
-      log('$e');
-      return null;
-    }
-  }
-
   Future register(String email, String password) async {
     try {
       return _instance.createUserWithEmailAndPassword(

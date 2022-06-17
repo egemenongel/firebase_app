@@ -11,14 +11,17 @@ class LoginView extends StatelessWidget {
     return BaseView<LoginViewModel>(
       onModelReady: (viewModel) => viewModel.initialize(),
       viewModelBuilder: () => LoginViewModel(context),
-      builder: ((context, viewModel, _) => _buildScaffold(
-            viewModel,
+      builder: ((context, viewModel, ___) => _buildScaffold(
             context,
+            viewModel,
           )),
     );
   }
 
-  Scaffold _buildScaffold(LoginViewModel viewModel, BuildContext context) {
+  Scaffold _buildScaffold(
+    BuildContext context,
+    LoginViewModel viewModel,
+  ) {
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
