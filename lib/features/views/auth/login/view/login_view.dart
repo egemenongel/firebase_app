@@ -1,25 +1,33 @@
-import 'dart:developer';
-
-import 'package:firebase_app/features/views/profile.dart';
+import 'package:firebase_app/core/base/view/base_view.dart';
+import 'package:firebase_app/features/views/auth/login/viewmodel/login_viewmodel.dart';
 import 'package:firebase_app/features/views/register.dart';
-import 'package:firebase_app/services/auth_service.dart';
 import 'package:flutter/material.dart';
 
 class LoginView extends StatelessWidget {
-  LoginView({Key? key}) : super(key: key);
-  final TextEditingController email = TextEditingController();
-  final TextEditingController password = TextEditingController();
+  const LoginView({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
+    return BaseView<LoginViewModel>(
+      onModelReady: (viewModel) => viewModel.initialize(),
+      viewModelBuilder: () => LoginViewModel(context),
+      builder: ((context, viewModel, _) => _buildScaffold(
+            viewModel,
+            context,
+          )),
+    );
+  }
+
+  Scaffold _buildScaffold(LoginViewModel viewModel, BuildContext context) {
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
           _buildTitle(),
-          _buildEmailField(),
-          _buildPasswordField(),
+          _buildEmailField(viewModel),
+          _buildPasswordField(viewModel),
           const SizedBox(height: 50),
-          _buildLoginButton(context),
+          _buildLoginButton(viewModel),
           _buildRegisterButton(context)
         ]),
       ),
@@ -27,24 +35,15 @@ class LoginView extends StatelessWidget {
   }
 
   Text _buildTitle() => const Text('LOGIN');
-  TextField _buildEmailField() => TextField(controller: email);
-  TextField _buildPasswordField() => TextField(controller: password);
-  ElevatedButton _buildLoginButton(BuildContext context) {
+  TextField _buildEmailField(LoginViewModel viewModel) =>
+      TextField(controller: viewModel.emailController);
+  TextField _buildPasswordField(LoginViewModel viewModel) =>
+      TextField(controller: viewModel.passwordController);
+  ElevatedButton _buildLoginButton(LoginViewModel viewModel) {
     return ElevatedButton(
-      onPressed: () => _login(context),
+      onPressed: () => viewModel.login(),
       child: const Text('Login'),
     );
-  }
-
-  void _login(BuildContext context) async {
-    var response = await AuthService().login(email.text, password.text);
-    final navigator = Navigator.of(context);
-    if (response != null) {
-      navigator
-          .push(MaterialPageRoute(builder: (navigator) => const ProfileView()));
-    } else {
-      log('$response');
-    }
   }
 
   TextButton _buildRegisterButton(BuildContext context) {
