@@ -1,0 +1,13 @@
+{
+    "common":{
+       "buttons":{
+          "login":"giriş yap"
+       },
+       "errors":{
+          "user-not-found":"Bu bilgilerle eşleşen bir kullanıcı bulunamadı.",
+          "wrong-password":"Yanlış e-posta ya da şifre.",
+          "invalid-email":"Lütfen geçerlı bir e-posta girin.",
+          "unknown":"Bir hata oluştu. Lütfen daha sonra tekrar deneyin."
+       }
+    }
+ }

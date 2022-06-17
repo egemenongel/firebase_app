@@ -8,7 +8,7 @@ void main() {
     basePath: "$machinePath/lib/features/views",
     commonBasePath: "$machinePath/assets/translations/common",
     outputPath: "$machinePath/assets/translations",
-    languages: ["en"],
+    languages: ['en', 'tr'],
   );
   try {
     _languageManager._createTranslationFiles();

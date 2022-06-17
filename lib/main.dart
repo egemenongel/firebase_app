@@ -52,6 +52,7 @@ class MyApp extends StatelessWidget {
         title: 'Flutter Demo',
         supportedLocales: const [
           Locale("en"),
+          Locale("tr"),
         ],
         localizationsDelegates: [
           flutterI18nDelegate,
