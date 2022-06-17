@@ -1,6 +1,6 @@
 import 'package:firebase_app/config/environment_config.dart';
 import 'package:firebase_app/config/firebase_options.dart';
-import 'package:firebase_app/features/views/login.dart';
+import 'package:firebase_app/features/views/auth/login/view/login_view.dart';
 import 'package:firebase_app/features/views/profile.dart';
 import 'package:firebase_app/services/auth_service.dart';
 
