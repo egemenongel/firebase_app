@@ -44,13 +44,14 @@ class LanguageManager {
   }
 
   _createPaths(String language) {
-    String _commonPath = "$commonBasePath/$language/$language.json";
-    _pathList = [];
+    String _commonPath = "$commonBasePath/$language/common.json";
+    _pathList = [
+      "auth/login/translation/$language/login.json",
+    ];
 
     _inputPathList.add(_commonPath);
     for (String path in _pathList) {
-      _inputPathList.add(
-          "${basePath.toString()}/$path/translation/$language/$language.json");
+      _inputPathList.add("$basePath/$path");
     }
   }
 
