@@ -1,0 +1,7 @@
+{
+   "common":{
+    "login":"login",
+    "register":"register",
+    "forgot":"forgot"
+   }
+}
