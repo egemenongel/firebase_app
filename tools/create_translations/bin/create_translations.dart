@@ -47,6 +47,7 @@ class LanguageManager {
     String _commonPath = "$commonBasePath/$language/common.json";
     _pathList = [
       "auth/login/translation/$language/login.json",
+      "auth/register/translation/$language/register.json",
     ];
 
     _inputPathList.add(_commonPath);
