@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
-class LoginViewModel extends BaseViewModel {
-  LoginViewModel(super.context);
+class LoginViewmodel extends BaseViewmodel {
+  LoginViewmodel(super.context);
   Map<String, dynamic> payload = {};
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();

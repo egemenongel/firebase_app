@@ -10,29 +10,29 @@ class LoginView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BaseView<LoginViewModel>(
-      onModelReady: (viewModel) => viewModel.initialize(),
-      viewModelBuilder: () => LoginViewModel(context),
-      builder: ((context, viewModel, ___) => _buildScaffold(
+    return BaseView<LoginViewmodel>(
+      onModelReady: (viewmodel) => viewmodel.initialize(),
+      viewmodelBuilder: () => LoginViewmodel(context),
+      builder: ((context, viewmodel, ___) => _buildScaffold(
             context,
-            viewModel,
+            viewmodel,
           )),
     );
   }
 
   Scaffold _buildScaffold(
     BuildContext context,
-    LoginViewModel viewModel,
+    LoginViewmodel viewmodel,
   ) {
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
           _buildTitle(),
-          _buildEmailField(viewModel),
-          _buildPasswordField(viewModel),
+          _buildEmailField(viewmodel),
+          _buildPasswordField(viewmodel),
           const SizedBox(height: 50),
-          _buildLoginButton(viewModel),
+          _buildLoginButton(viewmodel),
           _buildRegisterButton(context)
         ]),
       ),
@@ -43,13 +43,13 @@ class LoginView extends StatelessWidget {
         'login.title',
         textCase: StringCase.title,
       );
-  TextField _buildEmailField(LoginViewModel viewModel) =>
-      TextField(controller: viewModel.emailController);
-  TextField _buildPasswordField(LoginViewModel viewModel) =>
-      TextField(controller: viewModel.passwordController);
-  ElevatedButton _buildLoginButton(LoginViewModel viewModel) {
+  TextField _buildEmailField(LoginViewmodel viewmodel) =>
+      TextField(controller: viewmodel.emailController);
+  TextField _buildPasswordField(LoginViewmodel viewmodel) =>
+      TextField(controller: viewmodel.passwordController);
+  ElevatedButton _buildLoginButton(LoginViewmodel viewmodel) {
     return ElevatedButton(
-      onPressed: () => viewModel.login(),
+      onPressed: () => viewmodel.login(),
       child: const TranslatedText(
         'common.buttons.login',
         textCase: StringCase.title,

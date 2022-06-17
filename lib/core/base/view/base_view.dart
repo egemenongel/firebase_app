@@ -3,25 +3,25 @@ import 'package:provider/provider.dart';
 
 import '/core/base/viewmodel/base_viewmodel.dart';
 
-class BaseView<T extends BaseViewModel> extends StatefulWidget {
+class BaseView<T extends BaseViewmodel> extends StatefulWidget {
   const BaseView(
       {Key? key,
       required this.builder,
-      required this.viewModelBuilder,
+      required this.viewmodelBuilder,
       this.onModelReady})
       : super(key: key);
 
-  final Widget Function(BuildContext context, T viewModel, Widget? child)
+  final Widget Function(BuildContext context, T viewmodel, Widget? child)
       builder;
   final Function(T model)? onModelReady;
-  final T Function() viewModelBuilder;
+  final T Function() viewmodelBuilder;
 
   @override
   State<BaseView<T>> createState() => _BaseViewState();
 }
 
-class _BaseViewState<T extends BaseViewModel> extends State<BaseView<T>> {
-  T? _viewModel;
+class _BaseViewState<T extends BaseViewmodel> extends State<BaseView<T>> {
+  T? _viewmodel;
 
   @override
   void initState() {
@@ -30,16 +30,16 @@ class _BaseViewState<T extends BaseViewModel> extends State<BaseView<T>> {
   }
 
   void _createViewModel() {
-    _viewModel ??= widget.viewModelBuilder();
+    _viewmodel ??= widget.viewmodelBuilder();
     if (widget.onModelReady != null) {
-      widget.onModelReady!(_viewModel!);
+      widget.onModelReady!(_viewmodel!);
     }
   }
 
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<T>(
-      create: (context) => _viewModel!,
+      create: (context) => _viewmodel!,
       child: Consumer<T>(builder: viewBuilder),
     );
   }
