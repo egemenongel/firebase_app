@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 enum ViewState { busy, idle }
 
-abstract class CustomBaseViewModel extends ChangeNotifier {
+abstract class BaseViewModel extends ChangeNotifier {
   final BuildContext _context;
 
   BuildContext get context => _context;
@@ -11,7 +11,7 @@ abstract class CustomBaseViewModel extends ChangeNotifier {
 
   ViewState get viewState => _viewState;
 
-   set viewState(ViewState value) {
+  set viewState(ViewState value) {
     _viewState = value;
     notifyListeners();
   }
@@ -22,7 +22,7 @@ abstract class CustomBaseViewModel extends ChangeNotifier {
   bool get isBusy => viewState == ViewState.busy;
   bool get isIdle => viewState == ViewState.idle;
 
-  CustomBaseViewModel(this._context);
+  BaseViewModel(this._context);
 
   void initialize() {}
 }

@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 
 import '/core/base/viewmodel/base_viewmodel.dart';
 
-class BaseView<T extends CustomBaseViewModel> extends StatefulWidget {
+class BaseView<T extends BaseViewModel> extends StatefulWidget {
   const BaseView(
       {Key? key,
       required this.builder,
@@ -20,7 +20,7 @@ class BaseView<T extends CustomBaseViewModel> extends StatefulWidget {
   State<BaseView<T>> createState() => _BaseViewState();
 }
 
-class _BaseViewState<T extends CustomBaseViewModel> extends State<BaseView<T>> {
+class _BaseViewState<T extends BaseViewModel> extends State<BaseView<T>> {
   T? _viewModel;
 
   @override
