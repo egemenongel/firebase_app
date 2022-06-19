@@ -1,4 +1,4 @@
-import 'package:firebase_app/services/auth_service.dart';
+import 'package:firebase_app/features/services/auth_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class RegisterService extends AuthService {
