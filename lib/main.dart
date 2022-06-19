@@ -12,14 +12,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
 import 'package:flutter_i18n/loaders/decoders/json_decode_strategy.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
 
-Future<void> main() async {
+void main() async {
   await dotenv.load(fileName: EnvironmentConfig.envPath);
-
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
   final FlutterI18nDelegate flutterI18nDelegate = FlutterI18nDelegate(
     translationLoader: FileTranslationLoader(
       useCountryCode: false,
@@ -35,6 +32,10 @@ Future<void> main() async {
   );
 
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
   runApp(MyApp(flutterI18nDelegate));
 }
 
@@ -56,6 +57,7 @@ class MyApp extends StatelessWidget {
         ],
         localizationsDelegates: [
           flutterI18nDelegate,
+          ...GlobalMaterialLocalizations.delegates,
         ],
         theme: ThemeData(
           // This is the theme of your application.
