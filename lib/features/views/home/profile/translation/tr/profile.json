@@ -1,6 +1,7 @@
 {
     "profile":{
         "email":"Eposta: {email}",
-        "uid":"UID: {uid}"
+        "uid":"UID: {uid}",
+        "email-verification":"Epostan {isVerified}."
     }
 }

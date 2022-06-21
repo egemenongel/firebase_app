@@ -1,6 +1,7 @@
 {
     "profile":{
         "email":"Email: {email}",
-        "uid":"UID: {uid}"
+        "uid":"UID: {uid}",
+        "email-verification":"Your email is {isVerified}."
     }
 }

@@ -13,4 +13,13 @@ class ProfileService extends AuthService {
       return 'unknown-exception';
     }
   }
+
+  Future<dynamic> sendVerificationEmail() async {
+    try {
+      return await super.currentUser!.sendEmailVerification();
+    } catch (e) {
+      log('$e');
+      return 'unknown-exception';
+    }
+  }
 }

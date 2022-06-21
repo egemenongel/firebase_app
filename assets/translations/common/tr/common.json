@@ -4,7 +4,8 @@
           "login":"giriş yap",
           "register":"kayıt ol",
           "log-out":"çıkış yap",
-          "forgot-password":"sifremi unuttum"
+          "forgot-password":"sifremi unuttum",
+          "verify-email":"epostani onayla"
        },
        "errors":{
           "empty":"Lutfen bu alani doldurun.",

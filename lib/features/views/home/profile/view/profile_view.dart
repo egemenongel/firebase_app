@@ -1,12 +1,13 @@
 import 'package:firebase_app/core/base/view/base_view.dart';
 import 'package:firebase_app/core/components/translated_text.dart';
 import 'package:firebase_app/core/enums/string_case_enum.dart';
+import 'package:firebase_app/features/services/auth_service.dart';
 import 'package:firebase_app/features/views/home/profile/viewmodel/profile_viewmodel.dart';
 import 'package:flutter/material.dart';
 
 class ProfileView extends StatefulWidget {
   const ProfileView({Key? key}) : super(key: key);
-  static String id = 'profile';
+  static String id = '/profile';
   @override
   State<ProfileView> createState() => _ProfileViewState();
 }
@@ -39,7 +40,9 @@ class _ProfileViewState extends State<ProfileView> {
                 const SizedBox(height: 40),
                 _buildUid(viewmodel),
                 const SizedBox(height: 40),
-                _buildLogOutButton(viewmodel)
+                _buildLogOutButton(viewmodel),
+                _buildVerifyEmailButton(viewmodel),
+                _buildEmailVerificationText()
               ],
             ),
           ),
@@ -65,6 +68,26 @@ class _ProfileViewState extends State<ProfileView> {
         'common.buttons.log-out',
         textCase: StringCase.title,
       ),
+    );
+  }
+
+  TextButton _buildVerifyEmailButton(ProfileViewmodel viewmodel) {
+    return TextButton(
+        child: const TranslatedText(
+          'common.buttons.verify-email',
+          textCase: StringCase.title,
+        ),
+        onPressed: () async => await viewmodel.sendVerificationEmail());
+  }
+
+  TranslatedText _buildEmailVerificationText() {
+    return TranslatedText(
+      'profile.email-verification',
+      params: {
+        "isVerified": AuthService().currentUser!.emailVerified
+            ? 'onaylandi'
+            : 'onaylanmadi'
+      },
     );
   }
 }

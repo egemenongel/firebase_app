@@ -11,7 +11,7 @@ class ResetPasswordViewmodel extends BaseViewmodel {
 
   Future resetPassword() async {
     await ResetPasswordService()
-        .resetPassword(emailController.text)
+        .resetPassword(emailController.text.trim())
         .then((response) {
       if (response is String) {
         Fluttertoast.showToast(

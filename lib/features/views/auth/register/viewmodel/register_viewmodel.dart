@@ -16,8 +16,8 @@ class RegisterViewmodel extends BaseViewmodel {
 
   Future register() async {
     payload.addAll({
-      "email": emailController.text,
-      "password": passwordController.text,
+      "email": emailController.text.trim(),
+      "password": passwordController.text.trim(),
     });
 
     await RegisterService().register(payload).then((response) {

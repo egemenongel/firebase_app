@@ -4,7 +4,8 @@
          "login":"login",
          "register":"register",
          "log-out":"log out",
-         "forgot-password":"forgot password"
+         "forgot-password":"forgot password",
+         "verify-email":"verify your email"
       },
       "errors":{
          "empty":"Please fill this field.",

@@ -15,8 +15,8 @@ class LoginViewmodel extends BaseViewmodel {
 
   Future login() async {
     payload.addAll({
-      "email": emailController.text,
-      "password": passwordController.text,
+      "email": emailController.text.trim(),
+      "password": passwordController.text.trim(),
     });
 
     await LoginService().login(payload).then((response) {

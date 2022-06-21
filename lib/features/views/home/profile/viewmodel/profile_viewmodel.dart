@@ -17,4 +17,17 @@ class ProfileViewmodel extends BaseViewmodel {
       }
     });
   }
+
+  Future sendVerificationEmail() async {
+    await ProfileService().sendVerificationEmail().then((response) {
+      if (response is String) {
+        Fluttertoast.showToast(
+            msg: FlutterI18n.translate(context, 'common.errors.$response'));
+      } else {
+        Fluttertoast.showToast(
+            msg: FlutterI18n.translate(
+                context, 'common.messages.reset-password-email'));
+      }
+    });
+  }
 }
