@@ -1,6 +1,6 @@
 import 'package:firebase_app/core/base/viewmodel/base_viewmodel.dart';
 import 'package:firebase_app/features/views/auth/register/service/register_service.dart';
-import 'package:firebase_app/features/views/profile.dart';
+import 'package:firebase_app/features/views/home/profile/view/profile_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
 import 'package:fluttertoast/fluttertoast.dart';

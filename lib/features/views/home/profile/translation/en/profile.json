@@ -1,0 +1,6 @@
+{
+    "profile":{
+        "email":"Email: {email}",
+        "uid":"UID: {uid}"
+    }
+}

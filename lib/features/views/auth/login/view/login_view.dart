@@ -52,7 +52,7 @@ class LoginView extends StatelessWidget {
 
   ElevatedButton _buildLoginButton(LoginViewmodel viewmodel) {
     return ElevatedButton(
-      onPressed: () => viewmodel.login(),
+      onPressed: () async => await viewmodel.login(),
       child: const TranslatedText(
         'common.buttons.login',
         textCase: StringCase.title,

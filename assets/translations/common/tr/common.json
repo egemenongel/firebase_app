@@ -2,7 +2,8 @@
     "common":{
        "buttons":{
           "login":"giriş yap",
-          "register":"kayıt ol"
+          "register":"kayıt ol",
+          "log-out":"çıkış yap"
        },
        "errors":{
           "user-not-found":"Bu bilgilerle eşleşen bir kullanıcı bulunamadı.",
@@ -12,7 +13,7 @@
           "email-already-in-use":"Bu eposta adresi ile bir kullanıcı mevcut. Şifreni mi unuttun?",
           "operation-not-allowed":"Bir hata oluştu. Lütfen daha sonra tekrar deneyin.",
           "weak-password":"Lütfen en az 6 haneli bir şifre girin.",
-          "network-request-failed":"Ag hatasi. Lutfen internet baglantinizi kontrol edip tekrar deneyin.",
+          "network-request-failed":"Ağ hatası. Lütfen internet bağlantınızı kontrol edip tekrar deneyin.",
           "unknown-exception":"Bilinmeyen Hata"
        }
     }
