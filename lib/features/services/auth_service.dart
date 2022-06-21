@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:firebase_auth/firebase_auth.dart';
 
 class AuthService {
@@ -11,5 +13,12 @@ class AuthService {
     return instance.currentUser as User;
   }
 
-  Future logOut() => instance.signOut();
+  Future<dynamic> logOut() async {
+    try {
+      return await instance.signOut();
+    } catch (e) {
+      log('$e');
+      return 'unknown-exception';
+    }
+  }
 }

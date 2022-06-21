@@ -33,7 +33,7 @@ class LoginView extends StatelessWidget {
           _buildPasswordField(viewmodel),
           const SizedBox(height: 50),
           _buildLoginButton(viewmodel),
-          _buildRegisterButton(context)
+          _buildRegisterButton(context),
         ]),
       ),
     );
@@ -43,10 +43,13 @@ class LoginView extends StatelessWidget {
         'login.title',
         textCase: StringCase.title,
       );
+
   TextField _buildEmailField(LoginViewmodel viewmodel) =>
       TextField(controller: viewmodel.emailController);
+
   TextField _buildPasswordField(LoginViewmodel viewmodel) =>
       TextField(controller: viewmodel.passwordController);
+
   ElevatedButton _buildLoginButton(LoginViewmodel viewmodel) {
     return ElevatedButton(
       onPressed: () => viewmodel.login(),

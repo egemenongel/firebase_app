@@ -1,5 +1,4 @@
 import 'package:firebase_app/features/services/auth_service.dart';
-import 'package:firebase_app/features/views/auth/login/view/login_view.dart';
 import 'package:flutter/material.dart';
 
 class ProfileView extends StatefulWidget {
@@ -12,14 +11,6 @@ class ProfileView extends StatefulWidget {
 class _ProfileViewState extends State<ProfileView> {
   @override
   Widget build(BuildContext context) {
-    void _logOut() {
-      AuthService().logOut();
-      Navigator.pushAndRemoveUntil(
-          context,
-          MaterialPageRoute(builder: (context) => const LoginView()),
-          (route) => false);
-    }
-
     return Scaffold(
       body: Row(
         children: [
@@ -31,7 +22,7 @@ class _ProfileViewState extends State<ProfileView> {
                 const SizedBox(height: 40),
                 _buildUid(),
                 const SizedBox(height: 40),
-                _buildLogOutButton(_logOut)
+                _buildLogOutButton()
               ],
             ),
           ),
@@ -44,9 +35,9 @@ class _ProfileViewState extends State<ProfileView> {
 
   Text _buildUid() => Text('UID: ${AuthService().userInfo!.uid}');
 
-  ElevatedButton _buildLogOutButton(void Function() logOut) {
+  ElevatedButton _buildLogOutButton() {
     return ElevatedButton(
-      onPressed: logOut,
+      onPressed: () async => await AuthService().logOut(),
       child: const Text('Log Out'),
     );
   }
