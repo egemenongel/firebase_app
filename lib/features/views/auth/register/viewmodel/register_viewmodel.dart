@@ -1,13 +1,16 @@
 import 'package:firebase_app/core/base/viewmodel/base_viewmodel.dart';
 import 'package:firebase_app/features/views/auth/register/service/register_service.dart';
-import 'package:firebase_app/features/views/home/profile/view/profile_view.dart';
+import 'package:firebase_app/features/wrapper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 class RegisterViewmodel extends BaseViewmodel {
   RegisterViewmodel(super.context);
-  Map<String, dynamic> payload = {};
+
+  final Map<String, dynamic> _payload = {};
+  get payload => _payload;
+
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
@@ -22,8 +25,11 @@ class RegisterViewmodel extends BaseViewmodel {
         Fluttertoast.showToast(
             msg: FlutterI18n.translate(context, 'common.errors.$response'));
       } else {
-        Navigator.of(context).push(
-            MaterialPageRoute(builder: (navigator) => const ProfileView()));
+        Navigator.pushAndRemoveUntil(
+          context,
+          MaterialPageRoute(builder: (context) => const Wrapper()),
+          (route) => false,
+        );
       }
     });
   }
