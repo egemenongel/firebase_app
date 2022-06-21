@@ -1,7 +1,6 @@
 import 'package:firebase_app/core/base/view/base_view.dart';
 import 'package:firebase_app/core/components/translated_text.dart';
 import 'package:firebase_app/core/enums/string_case_enum.dart';
-import 'package:firebase_app/features/services/auth_service.dart';
 import 'package:firebase_app/features/views/home/profile/viewmodel/profile_viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
@@ -44,7 +43,7 @@ class _ProfileViewState extends State<ProfileView> {
                 _buildLogOutButton(viewmodel),
                 const SizedBox(height: 20),
                 _buildVerifyEmailButton(viewmodel),
-                _buildEmailVerificationText()
+                _buildEmailVerificationText(viewmodel)
               ],
             ),
           ),
@@ -74,7 +73,7 @@ class _ProfileViewState extends State<ProfileView> {
   }
 
   Widget _buildVerifyEmailButton(ProfileViewmodel viewmodel) {
-    return AuthService().currentUser!.emailVerified
+    return viewmodel.fetchProfile.emailVerified
         ? const SizedBox()
         : TextButton(
             child: const TranslatedText(
@@ -84,7 +83,7 @@ class _ProfileViewState extends State<ProfileView> {
             onPressed: () async => await viewmodel.sendVerificationEmail());
   }
 
-  RichText _buildEmailVerificationText() {
+  RichText _buildEmailVerificationText(ProfileViewmodel viewmodel) {
     return RichText(
         text: TextSpan(children: [
       TextSpan(
@@ -92,7 +91,7 @@ class _ProfileViewState extends State<ProfileView> {
         style: const TextStyle(color: Colors.grey),
       ),
       TextSpan(
-        text: AuthService().currentUser!.emailVerified
+        text: viewmodel.fetchProfile.emailVerified
             ? FlutterI18n.translate(context, 'profile.verified-email')
             : FlutterI18n.translate(context, 'profile.not-verified-email'),
         style: const TextStyle(
