@@ -1,6 +1,6 @@
 import 'package:firebase_app/core/base/viewmodel/base_viewmodel.dart';
 import 'package:firebase_app/features/views/auth/register/service/register_service.dart';
-import 'package:firebase_app/features/wrapper.dart';
+import 'package:firebase_app/features/splash_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -25,11 +25,8 @@ class RegisterViewmodel extends BaseViewmodel {
         Fluttertoast.showToast(
             msg: FlutterI18n.translate(context, 'common.errors.$response'));
       } else {
-        Navigator.pushAndRemoveUntil(
-          context,
-          MaterialPageRoute(builder: (context) => const Wrapper()),
-          (route) => false,
-        );
+        Navigator.pushNamedAndRemoveUntil(
+            context, SplashView.id, (route) => false);
       }
     });
   }

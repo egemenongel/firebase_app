@@ -3,7 +3,7 @@ import 'dart:developer';
 import 'package:firebase_app/config/environment_config.dart';
 import 'package:firebase_app/config/firebase_options.dart';
 import 'package:firebase_app/features/services/auth_service.dart';
-import 'package:firebase_app/features/wrapper.dart';
+import 'package:firebase_app/utils/navigation_manager.dart';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -60,7 +60,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: const Wrapper(),
+        routes: NavigationManager.instance!.routes,
       ),
     );
   }

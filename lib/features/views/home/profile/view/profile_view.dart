@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 
 class ProfileView extends StatefulWidget {
   const ProfileView({Key? key}) : super(key: key);
-
+  static String id = 'profile';
   @override
   State<ProfileView> createState() => _ProfileViewState();
 }

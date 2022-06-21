@@ -8,6 +8,6 @@ class AuthService {
   }
 
   User? get userInfo {
-    return instance.currentUser as User;
+    return instance.currentUser;
   }
 }

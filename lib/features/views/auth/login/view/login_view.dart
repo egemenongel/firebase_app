@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 
 class LoginView extends StatelessWidget {
   const LoginView({Key? key}) : super(key: key);
-
+  static String id = '/login';
   @override
   Widget build(BuildContext context) {
     return BaseView<LoginViewmodel>(
@@ -62,12 +62,7 @@ class LoginView extends StatelessWidget {
 
   TextButton _buildRegisterButton(BuildContext context) {
     return TextButton(
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => const RegisterView()),
-          );
-        },
+        onPressed: () => Navigator.pushNamed(context, RegisterView.id),
         child: const TranslatedText('login.register'));
   }
 }
