@@ -17,7 +17,10 @@
           "weak-password":"Lütfen en az 6 haneli bir şifre girin.",
           "network-request-failed":"Ağ hatası. Lütfen internet bağlantınızı kontrol edip tekrar deneyin.",
           "unknown-exception":"Bilinmeyen Hata"
-       },     
+       },         
+       "messages":{
+         "reset-password-email":"Sifrenizi sifirlamaniz icin gerekli talimatlar eposta adresinize gonderildi."
+       },  
        "fields":{
          "email":{
             "label":"eposta adresin",

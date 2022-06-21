@@ -18,6 +18,9 @@
          "network-request-failed":"Network error. Please check your internet connection and try again.",
          "unknown-exception":"Unknown Error"
       },
+      "messages":{
+         "reset-password-email":"Instructions to reset your password has been sent to your email."
+      },
       "fields":{
          "email":{
             "label":"your email",
