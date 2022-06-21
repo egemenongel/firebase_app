@@ -3,9 +3,11 @@
       "buttons":{
          "login":"login",
          "register":"register",
-         "log-out":"log out"
+         "log-out":"log out",
+         "forgot-password":"forgot password"
       },
       "errors":{
+         "empty":"Please fill this field.",
          "user-not-found":"There is no user with these credentials.",
          "wrong-password":"Incorrect email or password.",
          "invalid-email":"Please type an appropriate email address.",
@@ -15,7 +17,17 @@
          "weak-password":"Please type a password longer than 6 characters.",
          "network-request-failed":"Network error. Please check your internet connection and try again.",
          "unknown-exception":"Unknown Error"
-
+      },
+      "fields":{
+         "email":{
+            "label":"your email",
+            "hint":"johndoe@mail.com"
+         },
+         "password":{
+            "label":"your password",
+            "hint":"******"
+         }
       }
    }
+   
 }

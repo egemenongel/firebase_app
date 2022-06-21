@@ -3,9 +3,11 @@
        "buttons":{
           "login":"giriş yap",
           "register":"kayıt ol",
-          "log-out":"çıkış yap"
+          "log-out":"çıkış yap",
+          "forgot-password":"sifremi unuttum"
        },
        "errors":{
+          "empty":"Lutfen bu alani doldurun.",
           "user-not-found":"Bu bilgilerle eşleşen bir kullanıcı bulunamadı.",
           "wrong-password":"Yanlış eposta ya da şifre.",
           "invalid-email":"Lütfen geçerli bir e-posta girin.",
@@ -15,6 +17,16 @@
           "weak-password":"Lütfen en az 6 haneli bir şifre girin.",
           "network-request-failed":"Ağ hatası. Lütfen internet bağlantınızı kontrol edip tekrar deneyin.",
           "unknown-exception":"Bilinmeyen Hata"
-       }
+       },     
+       "fields":{
+         "email":{
+            "label":"eposta adresin",
+            "hint":"johndoe@mail.com"
+         },
+         "password":{
+            "label":"sifren",
+            "hint":"******"
+         }
+      }
     }
  }

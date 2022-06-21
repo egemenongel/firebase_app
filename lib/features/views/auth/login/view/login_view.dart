@@ -3,6 +3,8 @@ import 'package:firebase_app/core/components/translated_text.dart';
 import 'package:firebase_app/core/enums/string_case_enum.dart';
 import 'package:firebase_app/features/views/auth/login/viewmodel/login_viewmodel.dart';
 import 'package:firebase_app/features/views/auth/register/view/register_view.dart';
+import 'package:firebase_app/features/views/auth/reset_password/view/reset_password_view.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 class LoginView extends StatelessWidget {
@@ -34,6 +36,7 @@ class LoginView extends StatelessWidget {
           const SizedBox(height: 50),
           _buildLoginButton(viewmodel),
           _buildRegisterButton(context),
+          _buildForgotPasswordText(context)
         ]),
       ),
     );
@@ -64,5 +67,22 @@ class LoginView extends StatelessWidget {
     return TextButton(
         onPressed: () => Navigator.pushNamed(context, RegisterView.id),
         child: const TranslatedText('login.register'));
+  }
+
+  RichText _buildForgotPasswordText(BuildContext context) {
+    return RichText(
+      text: TextSpan(
+          text: 'Did you forget your password? ',
+          style: const TextStyle(color: Colors.black45),
+          children: [
+            TextSpan(
+              style: const TextStyle(color: Colors.blue),
+              text: 'Reset Password',
+              recognizer: TapGestureRecognizer()
+                ..onTap =
+                    () => Navigator.pushNamed(context, ResetPasswordView.id),
+            )
+          ]),
+    );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:firebase_app/core/extensions/context_extension.dart';
+import 'package:firebase_app/core/extensions/string_case_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
 
@@ -17,6 +18,7 @@ class CustomTextField extends StatelessWidget {
     this.textInputAction,
     this.errorTextVisible = true,
     this.isFilled = false,
+    this.isBordered = false,
   }) : super(key: key);
   final TextEditingController controller;
   final String? labelText;
@@ -30,6 +32,7 @@ class CustomTextField extends StatelessWidget {
   final TextInputAction? textInputAction;
   final bool errorTextVisible;
   final bool isFilled;
+  final bool isBordered;
 
   @override
   Widget build(BuildContext context) {
@@ -39,13 +42,16 @@ class CustomTextField extends StatelessWidget {
         hintText:
             hintText != null ? FlutterI18n.translate(context, hintText!) : "",
         filled: isFilled,
-        labelText:
-            hintText != null ? FlutterI18n.translate(context, labelText!) : "",
+        labelText: labelText != null
+            ? FlutterI18n.translate(context, labelText!).toTitleCase()
+            : "",
         floatingLabelBehavior: FloatingLabelBehavior.never,
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.all(context.lowestRadius),
-          borderSide: BorderSide(color: context.colors.primary),
-        ),
+        border: isBordered
+            ? OutlineInputBorder(
+                borderRadius: BorderRadius.all(context.lowestRadius),
+                borderSide: BorderSide(color: context.colors.primary),
+              )
+            : null,
         contentPadding: context.paddingNormalHorizontal,
         prefixIcon: prefixIcon,
         suffixIcon: suffixIcon,

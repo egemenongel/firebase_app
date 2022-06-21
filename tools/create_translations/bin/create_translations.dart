@@ -48,6 +48,7 @@ class LanguageManager {
     _pathList = [
       "auth/login/translation/$language/login.json",
       "auth/register/translation/$language/register.json",
+      "auth/reset_password/translation/$language/reset_password.json",
       "home/profile/translation/$language/profile.json",
     ];
 

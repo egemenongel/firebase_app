@@ -1,5 +1,6 @@
 import 'package:firebase_app/features/views/auth/login/view/login_view.dart';
 import 'package:firebase_app/features/views/auth/register/view/register_view.dart';
+import 'package:firebase_app/features/views/auth/reset_password/view/reset_password_view.dart';
 import 'package:firebase_app/features/views/home/profile/view/profile_view.dart';
 import 'package:firebase_app/features/splash_view.dart';
 import 'package:flutter/cupertino.dart';
@@ -19,5 +20,6 @@ class NavigationManager {
     LoginView.id: (context) => const LoginView(),
     RegisterView.id: (context) => const RegisterView(),
     ProfileView.id: (context) => const ProfileView(),
+    ResetPasswordView.id: (context) => const ResetPasswordView(),
   };
 }
