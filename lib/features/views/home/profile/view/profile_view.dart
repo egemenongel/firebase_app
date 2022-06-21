@@ -4,6 +4,7 @@ import 'package:firebase_app/core/enums/string_case_enum.dart';
 import 'package:firebase_app/features/services/auth_service.dart';
 import 'package:firebase_app/features/views/home/profile/viewmodel/profile_viewmodel.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_i18n/flutter_i18n.dart';
 
 class ProfileView extends StatefulWidget {
   const ProfileView({Key? key}) : super(key: key);
@@ -41,6 +42,7 @@ class _ProfileViewState extends State<ProfileView> {
                 _buildUid(viewmodel),
                 const SizedBox(height: 40),
                 _buildLogOutButton(viewmodel),
+                const SizedBox(height: 20),
                 _buildVerifyEmailButton(viewmodel),
                 _buildEmailVerificationText()
               ],
@@ -71,23 +73,33 @@ class _ProfileViewState extends State<ProfileView> {
     );
   }
 
-  TextButton _buildVerifyEmailButton(ProfileViewmodel viewmodel) {
-    return TextButton(
-        child: const TranslatedText(
-          'common.buttons.verify-email',
-          textCase: StringCase.title,
-        ),
-        onPressed: () async => await viewmodel.sendVerificationEmail());
+  Widget _buildVerifyEmailButton(ProfileViewmodel viewmodel) {
+    return AuthService().currentUser!.emailVerified
+        ? const SizedBox()
+        : TextButton(
+            child: const TranslatedText(
+              'common.buttons.verify-email',
+              textCase: StringCase.title,
+            ),
+            onPressed: () async => await viewmodel.sendVerificationEmail());
   }
 
-  TranslatedText _buildEmailVerificationText() {
-    return TranslatedText(
-      'profile.email-verification',
-      params: {
-        "isVerified": AuthService().currentUser!.emailVerified
-            ? 'onaylandi'
-            : 'onaylanmadi'
-      },
-    );
+  RichText _buildEmailVerificationText() {
+    return RichText(
+        text: TextSpan(children: [
+      TextSpan(
+        text: FlutterI18n.translate(context, 'profile.email-verification'),
+        style: const TextStyle(color: Colors.grey),
+      ),
+      TextSpan(
+        text: AuthService().currentUser!.emailVerified
+            ? FlutterI18n.translate(context, 'profile.verified-email')
+            : FlutterI18n.translate(context, 'profile.not-verified-email'),
+        style: const TextStyle(
+          color: Colors.grey,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+    ]));
   }
 }

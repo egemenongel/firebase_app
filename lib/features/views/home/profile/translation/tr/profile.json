@@ -2,6 +2,8 @@
     "profile":{
         "email":"Eposta: {email}",
         "uid":"UID: {uid}",
-        "email-verification":"Epostan {isVerified}."
+        "email-verification":"Epostan ",
+        "verified-email":"onaylandi.",
+        "not-verified-email":"onaylanmadi."
     }
 }
